@@ -3,15 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language translator</title>
+    <title>English → Hindi Translator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .translator-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            font-size: 16px;
+            resize: none;
+            margin-bottom: 20px;
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #3b82f6;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h4 {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #1e3a8a;
+        }
+
+        .result-box {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f1f5f9;
+            min-height: 50px;
+            word-wrap: break-word;
+            color: #1f2937;
+        }
+    </style>
 </head>
 <body>
-    <h1>Language translator english to hindi</h1>
-    <form method="POST">
-        <textarea name="data" placeholder="enter text" required></textarea>
-        <button type="submit">translate</button>
-    </form>
-    <h4>Result</h4>
-    {{ translated_text }}
+    <div class="translator-container">
+        <h1>English → Hindi Translator</h1>
+        <form method="POST">
+            <textarea name="data" placeholder="Enter text" required>{{ request.form.data }}</textarea>
+            <button type="submit">Translate</button>
+        </form>
+        <h4>Result</h4>
+        <div class="result-box">{{ translated_text }}</div>
+    </div>
 </body>
 </html>
